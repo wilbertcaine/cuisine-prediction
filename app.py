@@ -14,8 +14,10 @@ def home():
 import re
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk.stem.porter import *
 def preprocess_ingredient(ingredients):
     stop_words = set(stopwords.words('english'))
+    stemmer = PorterStemmer()
     for ingredient in ingredients:
         for i in range(len(ingredient)):
             x = ingredient[i] #'Bertolli® Classico Olive Oil', '(10 oz.) frozen chopped spinach, thawed and squeezed dry' ,'leg of lamb', 'lamb leg'
