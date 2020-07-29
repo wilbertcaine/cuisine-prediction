@@ -16,7 +16,7 @@ def get_bot_response():
     userText = request.args.get('msg')
     preprocess_ingredient(userText)
     test_data_features = create_bag_of_words(userText)
-    return model.predict(test_data_features)
+    return str(model.predict(test_data_features))
 
 if __name__ == '__main__':
     app.run()
