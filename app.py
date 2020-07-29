@@ -11,6 +11,7 @@ app = Flask(__name__, template_folder='templates')
 def home():
     return render_template("main.html")
 
+import re
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 def preprocess_ingredient(ingredients):
