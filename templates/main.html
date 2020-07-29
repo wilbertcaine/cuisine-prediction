@@ -22,7 +22,7 @@
           $("#textInput").val("");
           $("#chatbox").append(userHtml);
           document.getElementById("userInput");
-          $.get("/post", { msg: rawText }).done(function(data) {
+          $.get("/get", { msg: rawText }).done(function(data) {
             var botHtml = '<p class="botText"><span>' + data + "</span></p>";
             $("#chatbox").append(botHtml);
             document.getElementById("userInput");

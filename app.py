@@ -11,11 +11,11 @@ app = Flask(__name__, template_folder='templates')
 def home():
     return render_template("main.html")
 
-@app.route("/post")
+@app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    preprocess_ingredient(userText)
-    test_data_features = create_bag_of_words(userText)
+    model.preprocess_ingredient(userText)
+    test_data_features = model.create_bag_of_words(userText)
     return str(model.predict(test_data_features))
 
 if __name__ == '__main__':
