@@ -1,0 +1,6 @@
+flask
+json
+pandas
+gunicorn
+sklearn
+nltk
