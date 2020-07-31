@@ -1,3 +1,5 @@
+from __future__ import print_function # In python 2.7
+import sys
 from flask import Flask, render_template, request
 import pickle
 import pandas as pd
@@ -47,8 +49,7 @@ def create_bag_of_words(ingredients):
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/png')
-from __future__ import print_function # In python 2.7
-import sys
+
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
