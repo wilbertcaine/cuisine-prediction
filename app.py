@@ -47,7 +47,7 @@ def create_bag_of_words(ingredients):
 def get_bot_response():
     userText = request.args.get('msg')
     my_list = []
-    my_list.append(list(userText.split(" "))) 
+    my_list.append(list(userText.split(","))) 
     preprocess_ingredient(my_list)
     test_data_features = create_bag_of_words(my_list)
     return str(model.predict(test_data_features))
