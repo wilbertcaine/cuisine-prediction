@@ -43,6 +43,11 @@ def create_bag_of_words(ingredients):
         data_features.append(features)
     return data_features
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'templates', 'favicon_io'),
+                               'favicon.ico', mimetype='image/png')
+
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
