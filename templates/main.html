@@ -18,17 +18,22 @@
                 <span>Hi! I'm your personal ChatBot</span>
               </p>
             </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
+            <p><span class="text-small mb-0 text-muted" id="datetime"></span></p>
           </div>
         </div>
       </div>
     </div>
-    <footer class="px-4 py-4 chat-box bg-white fixed-bottom" id="userInput">
+    <footer class="px-4 py-3 chat-box bg-white fixed-bottom" id="userInput">
       <input class="form-control rounded-0 border-0 py-4 bg-light" name="msg" placeholder="Type a message" id="textInput">
     </footer>
     <script>
+      var dt = new Date();
+      document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+    </script>
+    <script>
       function getBotResponse() {
         var rawText = $("#textInput").val();
+        var dt = new Date();
         var userHtml = 
           '<div class="media w-50 ml-auto mb-3">'
             +'<div class="media-body">'
@@ -37,14 +42,14 @@
                   +rawText 
                 +'</p>'
               +'</div>'
-            +'<p class="small text-muted">12:00 PM | Aug 13</p>'
+            +'<p><span class="text-small mb-0 text-muted">'+dt.toLocaleTimeString()+'</span></p>'
           +'</div>';
         $("#textInput").val("");
         $("#chatbox").append(userHtml);
         window.scrollTo({top:document.body.scrollHeight, behavior: 'smooth'});
-        document.getElementById("userInput").scrollIntoView({ block: "start", behavior: "smooth" });
         $.get("/get", { msg: rawText }).done(function(data) {
-        var botHtml = 
+          var dt = new Date();
+          var botHtml = 
           '<div class="media w-50 mb-3">'+
             '<svg width="50" height="50" viewBox="0 0 16 16" class="bi bi-code-slash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+
               '<path fill-rule="evenodd" d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z"/>'+
@@ -53,11 +58,10 @@
               '<div class="bg-light rounded py-2 px-3 mb-2">'+
                 '<p class="text-small mb-0 text-muted"><span>' + data + "</span></p>"+
               '</div>'+
-              '<p class="small text-muted">12:00 PM | Aug 13</p>'+
+              '<p><span class="text-small mb-0 text-muted">'+dt.toLocaleTimeString()+'</span></p>'+
             '</div>'+
           '</div>';
           $("#chatbox").append(botHtml);
-          document.getElementById("userInput").scrollIntoView({ block: "start", behavior: "smooth" });
           window.scrollTo({top:document.body.scrollHeight, behavior: 'smooth'});
         });
       }
