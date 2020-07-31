@@ -56,8 +56,8 @@ def get_bot_response():
     my_list = []
     my_list.append(list(userText.split(","))) 
     preprocess_ingredient(my_list)
+    print(my_list, file=sys.stderr)
     test_data_features = create_bag_of_words(my_list)
-    print(test_data_features, file=sys.stderr)
     return str(model.predict(test_data_features))
 
 if __name__ == '__main__':
