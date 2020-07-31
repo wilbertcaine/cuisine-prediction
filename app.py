@@ -45,7 +45,7 @@ def create_bag_of_words(ingredients):
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'templates', 'favicon_io'),
+    return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/png')
 
 @app.route("/get")
