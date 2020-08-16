@@ -60,7 +60,7 @@ CairoSVG==2.4.2
 catalogue==1.0.0
 catalyst==20.7
 catboost==0.23.2
-category-encoders @ git+https://github.com/scikit-learn-contrib/categorical-encoding.git@bfb94f41447245959ff35ffe9a585ea01b9a574b
+#category-encoders @ git+https://github.com/scikit-learn-contrib/categorical-encoding.git@bfb94f41447245959ff35ffe9a585ea01b9a574b
 certifi==2020.6.20
 cesium==0.9.12
 cffi==1.14.0
