@@ -1,11 +1,13 @@
 from __future__ import print_function # In python 2.7
 import sys
 from flask import Flask, render_template, request
-import pickle
 import pandas as pd
 
-with open(f'model/cuisine_prediction_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+# import pickle
+# with open(f'model/cuisine_prediction_model.pkl', 'rb') as f:
+#     model = pickle.load(f)
+from joblib import dump, load
+model = load(f'model/cuisine_prediction_model.pkl') 
 
 app = Flask(__name__, template_folder='templates')
 
