@@ -1,5 +1,5 @@
-Flask==1.1.2
-pandas==1.0.3
+Flask
+pandas
 gunicorn
-sklearn==0.0
-nltk==3.2.4
+sklearn
+nltk
