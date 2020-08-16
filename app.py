@@ -35,7 +35,8 @@ def preprocess_ingredient(ingredients):
             stemmed_word = [stemmer.stem(word) for word in filtered_words]
             x = ' '.join(stemmed_word) #'bertolli classico oil oliv', 'chop dri frozen spinach squeez thaw' ,'lamb leg', 'lamb leg'
             ingredient[i] = x
-            
+
+import pickle
 with open(f'model/vocabs.pkl', 'rb') as f:
     vocabs = pickle.load(f)
 
