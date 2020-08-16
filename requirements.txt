@@ -7,8 +7,8 @@ albumentations==0.4.6
 alembic==1.4.2
 allennlp==1.0.0
 altair==4.1.0
-anaconda-client==1.7.2
-anaconda-project==0.8.3
+#anaconda-client==1.7.2
+#anaconda-project==0.8.3
 annoy==1.16.3
 ansiwrap==0.8.4
 appdirs==1.4.3
