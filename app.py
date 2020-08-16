@@ -6,8 +6,8 @@ import pandas as pd
 # import pickle
 # with open(f'model/cuisine_prediction_model.pkl', 'rb') as f:
 #     model = pickle.load(f)
-from joblib import dump, load
-model = load(f'model/cuisine_prediction_model.joblib') 
+import joblib
+model = joblib.load(f'model/cuisine_prediction_model_joblib.pkl')
 
 app = Flask(__name__, template_folder='templates')
 
